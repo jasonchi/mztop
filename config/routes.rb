@@ -1,4 +1,6 @@
 Mztop::Application.routes.draw do
+  resources :teams
+
   get "charts/index"
 
   # The priority is based upon order of creation:
