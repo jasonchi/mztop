@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  login: MyString
+  no: MyString
+  join_time: 2012-08-21
+  season_grade: 1
+  total_grade: 1
+  is_top: false
+
+two:
+  name: MyString
+  login: MyString
+  no: MyString
+  join_time: 2012-08-21
+  season_grade: 1
+  total_grade: 1
+  is_top: false

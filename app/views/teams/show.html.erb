@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @team.name %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%= @team.login %>
+</p>
+
+<p>
+  <b>No:</b>
+  <%= @team.no %>
+</p>
+
+<p>
+  <b>Join time:</b>
+  <%= @team.join_time %>
+</p>
+
+<p>
+  <b>Season grade:</b>
+  <%= @team.season_grade %>
+</p>
+
+<p>
+  <b>Total grade:</b>
+  <%= @team.total_grade %>
+</p>
+
+<p>
+  <b>Is top:</b>
+  <%= @team.is_top %>
+</p>
+
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
