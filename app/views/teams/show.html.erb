@@ -1,40 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Team -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @team.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:login) %>:</strong></dt>
+  <dd><%= @team.login %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no) %>:</strong></dt>
+  <dd><%= @team.no %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:join_time) %>:</strong></dt>
+  <dd><%= @team.join_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:season_grade) %>:</strong></dt>
+  <dd><%= @team.season_grade %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:total_grade) %>:</strong></dt>
+  <dd><%= @team.total_grade %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:is_top) %>:</strong></dt>
+  <dd><%= @team.is_top %></dd>
+</dl>
 
-<p>
-  <b>Login:</b>
-  <%= @team.login %>
-</p>
-
-<p>
-  <b>No:</b>
-  <%= @team.no %>
-</p>
-
-<p>
-  <b>Join time:</b>
-  <%= @team.join_time %>
-</p>
-
-<p>
-  <b>Season grade:</b>
-  <%= @team.season_grade %>
-</p>
-
-<p>
-  <b>Total grade:</b>
-  <%= @team.total_grade %>
-</p>
-
-<p>
-  <b>Is top:</b>
-  <%= @team.is_top %>
-</p>
-
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              teams_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_team_path(@team), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              team_path(@team),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

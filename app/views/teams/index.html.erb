@@ -1,35 +1,42 @@
-<h1>Listing teams</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Login</th>
-    <th>No</th>
-    <th>Join time</th>
-    <th>Season grade</th>
-    <th>Total grade</th>
-    <th>Is top</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= team.name %></td>
-    <td><%= team.login %></td>
-    <td><%= team.no %></td>
-    <td><%= team.join_time %></td>
-    <td><%= team.season_grade %></td>
-    <td><%= team.total_grade %></td>
-    <td><%= team.is_top %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<%- model_class = Team -%>
+<div class="page-header">
+  <h1>球队</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>队名</th>
+      <th>ID</th>
+      <th>球队ID</th>
+      <th>注册时间</th>
+      <th>本赛季积分</th>
+      <th>总积分</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= link_to team.name, team_path(team) %></td>
+        <td><%= team.login %></td>
+        <td><%= team.no %></td>
+        <td><%= team.join_time %></td>
+        <td><%= team.season_grade %></td>
+        <td><%= team.total_grade %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_team_path(team), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      team_path(team),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Team', new_team_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_team_path,
+            :class => 'btn btn-primary' %>
